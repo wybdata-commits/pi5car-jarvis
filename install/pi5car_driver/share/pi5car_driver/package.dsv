@@ -1,0 +1,9 @@
+source;share/pi5car_driver/hook/path.ps1
+source;share/pi5car_driver/hook/path.dsv
+source;share/pi5car_driver/hook/path.sh
+source;share/pi5car_driver/hook/pythonpath.ps1
+source;share/pi5car_driver/hook/pythonpath.dsv
+source;share/pi5car_driver/hook/pythonpath.sh
+source;share/pi5car_driver/hook/pythonscriptspath.ps1
+source;share/pi5car_driver/hook/pythonscriptspath.dsv
+source;share/pi5car_driver/hook/pythonscriptspath.sh

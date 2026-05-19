@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>pi5car_driver</name>
+  <version>0.0.1</version>
+  <description>Pi5 car motor driver node</description>
+  <maintainer email="pi@pi5car">pi</maintainer>
+  <license>MIT</license>
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
