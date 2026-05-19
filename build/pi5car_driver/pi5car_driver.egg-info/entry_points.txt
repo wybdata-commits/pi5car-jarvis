@@ -1,3 +1,0 @@
-[console_scripts]
-motor_node = pi5car_driver.motor_node:main
-
