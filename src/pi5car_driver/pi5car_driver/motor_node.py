@@ -14,8 +14,9 @@ MOTOR_PINS = {
 INVERT = {
     'fl': False,
     'fr': False,
-    'rl': False,
-    'rr': False,
+    'rl': True,
+    'rr': True
+,
 }
 
 class MotorNode(Node):
