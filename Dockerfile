@@ -9,4 +9,5 @@ RUN apt-get update && apt-get install -y \
     espeak \
     alsa-utils \
     && rm -rf /var/lib/apt/lists/*
+RUN pip install anthropic
 WORKDIR /ros2_ws
