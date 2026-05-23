@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
     ros-humble-cv-bridge \
     espeak \
     alsa-utils \
+    ffmpeg \
+    libportaudio2 \
     && rm -rf /var/lib/apt/lists/*
-RUN pip install anthropic
+RUN pip install anthropic dashscope sounddevice
 WORKDIR /ros2_ws
