@@ -11,6 +11,7 @@ class TtsNode(Node):
     def __init__(self):
         super().__init__('tts_node')
         dashscope.api_key = os.environ.get('DASHSCOPE_API_KEY')
+        self.done_pub = self.create_publisher(String, '/tts/done', 10)
         self.create_subscription(String, '/tts/say', self.say_cb, 10)
         self.get_logger().info('TTS node started (CosyVoice) — listening on /tts/say')
 
@@ -28,6 +29,9 @@ class TtsNode(Node):
                 tmp_path = f.name
             subprocess.run(f'ffmpeg -loglevel quiet -i {tmp_path} -f wav - | aplay -D plughw:2,0', shell=True)
             os.unlink(tmp_path)
+            done_msg = String()
+            done_msg.data = 'done'
+            self.done_pub.publish(done_msg)
         except Exception as e:
             self.get_logger().error(f'TTS error: {e}')
             subprocess.run(f'espeak -v zh "{text}" --stdout | aplay -D plughw:2,0', shell=True)

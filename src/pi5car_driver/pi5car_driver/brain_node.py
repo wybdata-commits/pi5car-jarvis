@@ -15,6 +15,8 @@ class BrainNode(Node):
         self.create_subscription(String, '/stt/text', self.on_speech, 10)
         # 订阅视觉描述（可选，有视觉上下文时使用）
         self.create_subscription(String, '/vision/description', self.on_vision, 10)
+        # 订阅 TTS 播完信号 → 触发下一轮录音
+        self.create_subscription(String, '/tts/done', self.on_tts_done, 10)
 
         # 发布 TTS 和运动指令
         self.tts_pub  = self.create_publisher(String, '/tts/say', 10)
@@ -28,6 +30,9 @@ class BrainNode(Node):
 
     def on_vision(self, msg):
         self.latest_vision = msg.data
+
+    def on_tts_done(self, msg):
+        self.trigger_stt()
 
     def on_speech(self, msg):
         text = msg.data.strip()
@@ -91,6 +96,13 @@ class BrainNode(Node):
         msg = String()
         msg.data = text.strip()
         self.tts_pub.publish(msg)
+        # 不再用 Timer 估算延迟，改为等 /tts/done 信号触发录音
+
+    def trigger_stt(self):
+        msg = String()
+        msg.data = 'start'
+        self.stt_pub.publish(msg)
+        self.get_logger().info('Listening...')
 
 def main():
     rclpy.init()
