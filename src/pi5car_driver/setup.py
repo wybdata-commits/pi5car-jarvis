@@ -24,6 +24,7 @@ setup(
             'tts_node = pi5car_driver.tts_node:main',
             'teleop_node = pi5car_driver.teleop_node:main',
             'obstacle_avoidance_node = pi5car_driver.obstacle_avoidance_node:main',
+            'vision_node = pi5car_driver.vision_node:main',
         ],
     },
 )
