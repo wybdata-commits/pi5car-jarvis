@@ -22,6 +22,7 @@ setup(
             'camera_node = pi5car_driver.camera_node:main',
             'gimbal_node = pi5car_driver.gimbal_node:main',
             'tts_node = pi5car_driver.tts_node:main',
+            'teleop_node = pi5car_driver.teleop_node:main',
         ],
     },
 )
