@@ -9,7 +9,7 @@ import os
 import wave
 import tempfile
 
-SAMPLE_RATE = 16000
+SAMPLE_RATE = 48000
 RECORD_SECONDS = 5
 
 class SttNode(Node):

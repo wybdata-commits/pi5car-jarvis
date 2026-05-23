@@ -26,7 +26,7 @@ class TtsNode(Node):
             with tempfile.NamedTemporaryFile(suffix='.mp3', delete=False) as f:
                 f.write(audio)
                 tmp_path = f.name
-            subprocess.run(['aplay', '-D', 'plughw:2,0', tmp_path])
+            subprocess.run(f'ffmpeg -loglevel quiet -i {tmp_path} -f wav - | aplay -D plughw:2,0', shell=True)
             os.unlink(tmp_path)
         except Exception as e:
             self.get_logger().error(f'TTS error: {e}')
