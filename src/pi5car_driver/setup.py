@@ -11,6 +11,7 @@ setup(
     entry_points={
         'console_scripts': [
             'motor_node = pi5car_driver.motor_node:main',
+            'ultrasonic_node = pi5car_driver.ultrasonic_node:main',
         ],
     },
 )
