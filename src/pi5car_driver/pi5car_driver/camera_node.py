@@ -21,6 +21,7 @@ class CameraNode(Node):
         if not ret:
             self.get_logger().warn('Failed to read frame')
             return
+        frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
         msg = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
         self.pub.publish(msg)
         self.get_logger().info(f'Frame published: {frame.shape}')

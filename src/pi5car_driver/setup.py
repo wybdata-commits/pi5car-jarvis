@@ -28,6 +28,8 @@ setup(
             'stt_node = pi5car_driver.stt_node:main',
             'brain_node = pi5car_driver.brain_node:main',
             'yolo_node = pi5car_driver.yolo_node:main',
+            'person_follow_node = pi5car_driver.person_follow_node:main',
+            'gimbal_track_node = pi5car_driver.gimbal_track_node:main',
         ],
     },
 )
