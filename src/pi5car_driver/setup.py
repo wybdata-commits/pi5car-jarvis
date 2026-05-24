@@ -27,6 +27,7 @@ setup(
             'vision_node = pi5car_driver.vision_node:main',
             'stt_node = pi5car_driver.stt_node:main',
             'brain_node = pi5car_driver.brain_node:main',
+            'yolo_node = pi5car_driver.yolo_node:main',
         ],
     },
 )
